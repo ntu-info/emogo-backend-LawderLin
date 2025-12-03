@@ -9,18 +9,13 @@ import io
 import csv
 import os
 
-# MongoDB connection - support both local Docker and MongoDB Atlas
-MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://admin:password@mongodb:27017/emogo_db")
-DB_NAME = os.getenv("MONGODB_DB", "sample_mflix")
-COLLECTION_NAME = "mood_records"
-
 print(f"Connecting to MongoDB at: {MONGODB_URI.split('@')[-1] if '@' in MONGODB_URI else MONGODB_URI}")
 
 try:
     client = MongoClient(MONGODB_URI, serverSelectionTimeoutMS=5000)
     client.admin.command('ping')
-    db = client[DB_NAME]
-    collection = db[COLLECTION_NAME]
+    # db = client[DB_NAME]
+    # collection = db[COLLECTION_NAME]
     print("✓ MongoDB connection successful")
 except ConnectionFailure as e:
     print(f"✗ MongoDB connection failed: {e}")
