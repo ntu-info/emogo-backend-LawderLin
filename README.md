@@ -1,5 +1,7 @@
 # EmoGo Backend
 
+Download data: https://lawderlin-1141-psychinfo-emogo.onrender.com/api/export/csv
+
 EmoGo is course project for practicing building a product.
 
 In this section, we need to build the backend for the product.

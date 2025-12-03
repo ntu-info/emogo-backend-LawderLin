@@ -9,9 +9,10 @@ import io
 import csv
 import os
 
+
 MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://admin:password@mongodb:27017/emogo_db")
 DB_NAME = os.getenv("MONGODB_DB", "sample_mflix")
-COLLECTION_NAME = "mood_records"
+COLLECTION_NAME = os.getenv("MONGODB_COLLECTION", "mood_records")
 
 print(f"Connecting to MongoDB at: {MONGODB_URI.split('@')[-1] if '@' in MONGODB_URI else MONGODB_URI}")
 
