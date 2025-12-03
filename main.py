@@ -10,8 +10,8 @@ import csv
 import os
 
 # MongoDB connection - support both local Docker and MongoDB Atlas
-MONGODB_URI = "mongodb+srv://lawderlin:U2yaS5KwwXkxsVwK@emogo-backend.wm1wlle.mongodb.net/"
-DB_NAME = os.getenv("MONGODB_DB", "emogo_db")
+MONGODB_URI = os.getenv("MONGODB_URI", "mongodb://admin:password@mongodb:27017/emogo_db")
+DB_NAME = os.getenv("MONGODB_DB", "EmoGo-Backend")
 COLLECTION_NAME = "mood_records"
 
 print(f"Connecting to MongoDB at: {MONGODB_URI.split('@')[-1] if '@' in MONGODB_URI else MONGODB_URI}")
@@ -176,3 +176,7 @@ async def get_stats():
             for i in range(1, 6)
         }
     }
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
